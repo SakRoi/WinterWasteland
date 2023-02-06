@@ -15,18 +15,18 @@ class PlayerInfo:
 
     def set_player_heritage(self) -> None:
         """A command to get the player character's heritage"""
-        player_heritage_choice = input("What's our heritage? 1. Laestadian ")
+        player_heritage_choice = int(input("What's our heritage? 1. Laestadian "))
         if player_heritage_choice == 1:
-            player_heritage = "Laestadian"
+            self.player_heritage = "Laestadian"
         else:
-            player_heritage = "Unknown"
+            self.player_heritage = "Unknown"
 
     def print_player_character_template(self) -> None:
         """A command to save the player's character as a template to be used later"""
+        print(f"player_heritage = {self.player_heritage}\n")
         with open("PlayerTemplate.txt", "w") as PlayerTemplate:
             PlayerTemplate.write(f"player_name = {self.player_name}\n")
-            #PlayerTemplate.write(f"player_heritage = {self.player_heritage}\n")
-            #printing player_heritage for some reason doesn't work
+            PlayerTemplate.write(f"player_heritage = {self.player_heritage}\n")
 
 playerCharacter = PlayerInfo()
 playerCharacter.set_player_name()
