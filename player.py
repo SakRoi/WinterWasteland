@@ -13,18 +13,27 @@ class PlayerInfo:
         """A command to get the player character named"""
         self.player_name = input("What's our name? :")
 
-    def set_player_heritage(self) -> None:
-        """A command to get the player character's heritage"""
-
-        try:
-            player_heritage_choice = int(input("What's our heritage? 1. Laestadian "))
-        except:
-            print("Invalid input, please enter a number")
-        else:
-            if player_heritage_choice == 1:
-                self.player_heritage = "Laestadian"
+    def take_player_heritage_choice(self) -> None:
+        """
+        Takes players input, checks that it is an integer and then calls
+        set player heritage with this input.
+        """
+        valid_choice = False
+        while valid_choice != True:
+            try:
+                player_heritage_choice = int(input("What's our heritage? 1. Laestadian "))
+            except:
+                print("Invalid input, please enter a number")
             else:
-                self.player_heritage = "Unknown"
+                valid_choice = self.set_player_heritage()
+                
+    
+    def set_player_heritage(self, player_heritage_choice: int) -> bool:
+        if player_heritage_choice == 1:
+            self.player_heritage = "Laestadian"
+            return True
+        else:
+            self.player_heritage = "Unknown"
 
     def print_player_character_template(self) -> None:
         """A command to save the player's character as a template to be used later"""
