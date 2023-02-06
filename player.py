@@ -63,8 +63,3 @@ class PlayerInfo:
         with open("PlayerTemplate.txt", "w") as PlayerTemplate:
             PlayerTemplate.write(f"player_name = {self.player_name}\n")
             PlayerTemplate.write(f"player_heritage = {self.player_heritage}\n")
-
-playerCharacter = PlayerInfo()
-playerCharacter.set_player_name()
-playerCharacter.take_player_heritage_choice()
-playerCharacter.print_player_character_template()
