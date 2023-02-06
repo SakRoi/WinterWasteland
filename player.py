@@ -29,7 +29,7 @@ class PlayerInfo:
                 valid_choice = self.set_player_heritage(player_heritage_choice)
                 
     
-    def set_player_heritage(self, player_heritage_choice: int) -> bool:
+    def _set_player_heritage(self, player_heritage_choice: int) -> bool:
         """
         Check input against a if-else clauses, set
         a heritage and return a bool.
