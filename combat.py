@@ -17,6 +17,7 @@ class CombatSystem:
             #check who wins and deal damage to the loser or both if draw
             if player_choice == "Paper":
                 self.enemy.health -= 1
+                print(self.enemy.health)
             self.last_player_choice = player_choice
         print("You've slain the enemy!")
         self.enemy = None
@@ -33,8 +34,8 @@ class CombatSystem:
     def _player_combat_choice(self) -> str:
         choice = ""
         while True:
-            choice = input("Select from rock, paper or scissor: ")
-            if choice.strip().title() in ["Rock", "Paper", "Scissor"]:
+            choice = input("Select from rock, paper or scissor: ").strip().title()
+            if choice in ["Rock", "Paper", "Scissor"]:
                 break
             else:
                 print("Invalid input.")
@@ -68,4 +69,5 @@ class CombatSystem:
     def _random_combat_AI(self) -> str:
         """Always returns a random choice from RPS"""
         
-        return choice
+        #set to only return rock for testing purposes
+        return "Rock"
