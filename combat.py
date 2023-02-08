@@ -4,7 +4,6 @@ class CombatSystem:
 
     def __init__(self, player_character) -> None:
         self.player = player_character
-        self.first_turn = True
         self.enemy = None
         self.last_player_choice = None
     
@@ -19,9 +18,9 @@ class CombatSystem:
                 self.enemy.enemy_health -= 1
                 print(self.enemy.enemy_health)
             self.last_player_choice = player_choice
+            #
         print("You've slain the enemy!")
         self.enemy = None
-        self.first_turn = True
 
     def _enemy_combat_choice(self, last_player_choice: str) -> str:
         if last_player_choice == None:
@@ -44,13 +43,8 @@ class CombatSystem:
     def _easy_combat_AI(self, last_player_choice: str) -> str:
         """Easy combat AI"""
         #always returns rock for testing purposes
-        if self.first_turn == True:
-            self.first_turn == False
-            return "Rock"
-            #commented out for testing purposes
-            #return self._random_combat_AI()
-        else:
-            return "Rock"
+        #return self._random_combat_AI()
+        return "Rock"
     
     def _medium_combat_AI(self, last_player_choice: str) -> str:
         """
@@ -59,12 +53,7 @@ class CombatSystem:
         counter move that player would play against the
         easy bot.
         """
-
-        if self.first_turn == True:
-            self.first_turn == False
-            return self._random_combat_AI()
-        else:
-            return player_choice
+        return player_choice
 
     def _random_combat_AI(self) -> str:
         """Always returns a random choice from RPS"""
