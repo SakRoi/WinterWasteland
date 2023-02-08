@@ -29,6 +29,13 @@ class CombatSystem:
         
     
     def _player_combat_choice(self) -> str:
+        choice = ""
+        while True:
+            choice = input("Select from rock, paper or scissor: ")
+            if choice.strip().title() in ["Rock", "Paper", "Scissor"]:
+                break
+            else:
+                print("Invalid input.")
         return choice
     
     def _easy_combat_AI(self, player_choice: str) -> str:
@@ -43,7 +50,7 @@ class CombatSystem:
         counter move that player would play against the
         easy bot.
         """
-        
+
         if self.first_turn == True:
             return self._random_combat_AI()
         else:
