@@ -13,7 +13,7 @@ class CombatSystem:
         self.enemy = enemy_entity
         while self.enemy.health >= 1 or self.player.health >= 1:
             player_choice = self._player_combat_choice()
-            enemy_choice = _enemy_combat_choice(self.last_player_choice)
+            enemy_choice = self._enemy_combat_choice(self.last_player_choice)
             #check who wins and deal damage to the loser or both if draw
             if player_choice == "Paper":
                 self.enemy.health -= 1
