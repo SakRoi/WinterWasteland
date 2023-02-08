@@ -9,4 +9,4 @@ if __name__ == "__main__":
     playerCharacter.print_player_character_template()
     test_enemy = EnemyInfo()
     test_combat = CombatSystem(playerCharacter)
-    
+    test_combat.combat(test_enemy)
