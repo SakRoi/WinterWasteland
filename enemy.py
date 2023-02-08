@@ -1,5 +1,5 @@
 
-class EnemyBaseInfo:
+class EnemyInfo:
 
     def __init__ (self, health=10: int, damage=2: int, AI_difficulty = "easy": str) -> None:
         self.health = health
