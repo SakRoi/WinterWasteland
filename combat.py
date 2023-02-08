@@ -27,9 +27,9 @@ class CombatSystem:
     def _enemy_combat_choice(self, last_player_choice: str) -> str:
         if last_player_choice == None:
             return self._random_combat_AI()
-        elif self.enemy.difficulty == "easy":
+        elif self.enemy.enemy_difficulty == "easy":
             return self._easy_combat_AI(last_player_choice)
-        elif self.enemy.difficulty == "medium":
+        elif self.enemy.enemy_difficulty == "medium":
             return self._medium_combat_AI(last_player_choice)
     
     def _player_combat_choice(self) -> str:

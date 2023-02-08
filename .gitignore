@@ -1,2 +1,5 @@
 #block from commiting the player stat sheets into github
 *.txt
+
+#Blocks the __pycache__
+__pycache__/
