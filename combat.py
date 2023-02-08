@@ -15,7 +15,7 @@ class CombatSystem:
             player_choice = self._player_combat_choice()
             enemy_choice = _enemy_combat_choice(self.last_player_choice)
             #check who wins and deal damage to the loser or both if draw
-            if player_choice = "Paper":
+            if player_choice == "Paper":
                 self.enemy.health -= 1
             self.last_player_choice = player_choice
         print("You've slain the enemy!")
