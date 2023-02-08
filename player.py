@@ -26,7 +26,7 @@ class PlayerInfo:
             except:
                 print("Invalid input, enter a number and try again")
             else:
-                valid_choice = self.set_player_heritage(player_heritage_choice)
+                valid_choice = self._set_player_heritage(player_heritage_choice)
                 
     
     def _set_player_heritage(self, player_heritage_choice: int) -> bool:
