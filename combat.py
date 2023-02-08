@@ -16,11 +16,13 @@ class CombatSystem:
             #check who wins and deal damage to the loser or both if draw
             if player_choice == "Paper":
                 self.enemy.enemy_health -= 1
-                print(self.enemy.enemy_health)
+                print(f"{self.enemy.enemy_health}\n")
+                print(f"The enemy chose {enemy_choice}!\n")
             self.last_player_choice = player_choice
             #
         print("You've slain the enemy!")
         self.enemy = None
+        self.last_player_choice = None
 
     def _enemy_combat_choice(self, last_player_choice: str) -> str:
         if last_player_choice == None:
