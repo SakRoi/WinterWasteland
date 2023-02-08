@@ -15,17 +15,22 @@ class CombatSystem:
             player_choice = self._player_combat_choice()
             enemy_choice = _enemy_combat_choice(self.last_player_choice)
             #check who wins and deal damage to the loser or both if draw
-    
+            if player_choice = "Paper":
+                self.enemy.health -= 1
             self.last_player_choice = player_choice
+        print("You've slain the enemy!")
+        self.enemy = None
+        self.first_turn = True
+
 
     
-    def _enemy_combat_choice(self, player_choice: str) -> str:
-        if player_choice == None:
+    def _enemy_combat_choice(self, last_player_choice: str) -> str:
+        if last_player_choice == None:
             return self._random_combat_AI()
         elif self.enemy.difficulty == "easy":
-            return self._easy_combat_AI(player_choice)
+            return self._easy_combat_AI(last_player_choice)
         elif self.enemy.difficulty == "medium":
-            return self._medium_combat_AI(player_choice)
+            return self._medium_combat_AI(last_player_choice)
         
     
     def _player_combat_choice(self) -> str:
@@ -38,12 +43,18 @@ class CombatSystem:
                 print("Invalid input.")
         return choice
     
-    def _easy_combat_AI(self, player_choice: str) -> str:
+    def _easy_combat_AI(self, last_player_choice: str) -> str:
+        """Easy combat AI"""
+        #always returns rock for testing purposes
         if self.first_turn == True:
-            self._random_combat_AI()
+            self.first_turn == False
+            return "Rock"
+            #commented out for testing purposes
+            #return self._random_combat_AI()
         else:
+            return "Rock"
     
-    def _medium_combat_AI(self, player_choice: str) -> str:
+    def _medium_combat_AI(self, last_player_choice: str) -> str:
         """
         helper method for medium difficulty combat AI.
         Copies the players last input to counter the
@@ -52,6 +63,7 @@ class CombatSystem:
         """
 
         if self.first_turn == True:
+            self.first_turn == False
             return self._random_combat_AI()
         else:
             return player_choice
