@@ -5,9 +5,9 @@ class PlayerInfo:
 
     def __init__ (self) -> None:
         """Intializes player characters attributes"""
-        player_name = ""
-        player_heritage = ""
-        player_health = 10
+        self.player_name = ""
+        self.player_heritage = ""
+        self.player_health = 10
     
     def set_player_name(self) -> None:
         """A command to get the player character named"""
