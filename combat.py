@@ -75,7 +75,7 @@ class CombatSystem:
         counter move that player would play against the
         easy bot.
         """
-        return player_choice
+        return last_player_choice
 
     def _random_combat_AI(self) -> str:
         """Always returns a random choice from RPS"""
