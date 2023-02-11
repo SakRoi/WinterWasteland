@@ -8,10 +8,10 @@ class CombatSystem:
         self.enemy = None
         self.last_player_choice = None
     
-    def combat(self, enemy_entity):
+    def combat(self, enemy_entity) -> None:
         """A callable method for enemy encounters in the wasteland"""
         self.enemy = enemy_entity
-        while self.enemy.enemy_health >= 1 or self.player.player_health >= 1:
+        while self.enemy.enemy_health >= 1 and self.player.player_health >= 1:
             player_choice = self._player_combat_choice()
             enemy_choice = self._enemy_combat_choice(self.last_player_choice)
 
