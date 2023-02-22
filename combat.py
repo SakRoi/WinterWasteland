@@ -27,9 +27,7 @@ class CombatSystem:
         while self.enemy.enemy_health >= 1 and self.player.player_health >= 1:
             player_choice = self._player_combat_choice()
             enemy_choice = self._enemy_combat_choice(self.last_player_choice)
-
-            
-            
+            self._hit_checker(player_choice, enemy_choice)
         print("You've slain the enemy!")
         self.enemy = None
         self.last_player_choice = None
@@ -94,21 +92,17 @@ class CombatSystem:
         print(f"The enemy chose {enemy_choice}!")
         print(f"You chose {player_choice}!")
 
-        #TODO make this smarter and refactor!!!
-        #Win
-        #if player_choice == "Paper":
-        #    print("you hit the enemy!")
-        #    self.enemy.enemy_health -= 1
-        #Loss
-        #elif player_choice == "Scissor":
-        #    print("The enemy hits you!")
-        #    self.player.player_health -= self.enemy.enemy_damage
-        #Draw
-        #elif player_choice == "Rock": 
-        #    print("You both get scratched!")
-        #    self.player.player_health -= self.enemy.enemy_damage//2
-        #    self.enemy.enemy_health -= 1
-            
-        #print(f"Player health: {self.player.player_health}")
-        #print(f"Enemy health: {self.enemy.enemy_health}")
-        #self.last_player_choice = player_choice
+        if enemy_choice == player_choice:
+            print("You both get scratched!")
+            self.player.player_health -= self.enemy.enemy_damage//2
+            self.enemy.enemy_health -= 1    
+        elif enemy_choice == self.combat_win_dictionary[player_choice]:
+            print("you hit the enemy!")
+            self.enemy.enemy_health -= 1
+        else:
+            print("The enemy hits you!")
+            self.player.player_health -= self.enemy.enemy_damage
+        
+        print(f"Player health: {self.player.player_health}")
+        print(f"Enemy health: {self.enemy.enemy_health}")
+        self.last_player_choice = player_choice
